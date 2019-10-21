@@ -19,7 +19,7 @@ At the Long Island Railroad, train delays occur between stations due to a number
 
 The TIMACS dataset being utilized will be during the month of February 2019 and contain the following data:
 
-<class 'pandas.core.frame.DataFrame'>
+>><class 'pandas.core.frame.DataFrame'>
 RangeIndex: 1334202 entries, 0 to 1334201
 Data columns (total 33 columns):
 FULL_TRAIN_NUM           1334202 non-null object
