@@ -1,5 +1,5 @@
-##Udacity ML Capstone - Thomas Wiese
-#Domain Background
+## Udacity ML Capstone - Thomas Wiese
+# Domain Background
 The Long Island Railroad operates one of the largest commuter rail networks in the U.S.. As an employee, I have access to nonpublic data which includes the location and arrival time of trains based on onboard GPS position. This data is known internally as TIMACS. 
 
 A few academic papers have been published attempting to predict train delays including:
@@ -12,10 +12,10 @@ https://arxiv.org/pdf/1806.02825.pdf
 
 I’d also be interested in publishing my results in a scholarly journal if I can get permission from the LIRR to share the data. I am currently a Ph.D. student in Information Science and it is in my best interest to expand my publication record.
 
-#Problem Statement
+# Problem Statement
 At the Long Island Railroad, train delays occur between stations due to a number of factors. Train delays can have a negative impact on customer experience and cause a negative reputational impact. For this study, TIMACS train location data and the LIRR train schedule will be compared to determine areas that experience delays at a high frequency. Further, train delays when heading West during the AM peak for trains which arrive at Penn Station are of particular concern. I intend to develop a Machine Learning model which predicts how late individual trains will arrive at Penn Station.
 
-#Datasets and Inputs
+# Datasets and Inputs
 
 The TIMACS dataset being utilized will be during the month of February 2019 and contain the following data:
 
@@ -68,18 +68,18 @@ Some fields that I believe will be relevant include FULL_TRAIN_NUM, LOCATION, SC
     - GPS_ARR_DTM - The time that the GPS record was actually generated when the train arrived
     - GPS_ARR_OPT = SCH_DTM - GPS_ARR_DTM; The difference between the scheduled arrival time and the actual GPS arrival time in seconds. **There is a notable issue here**, SCH_DTM and GPS_ARR_DTM do not include seconds in this data file. I believe we can reasonably assume that SCH_DTM is always at 0 seconds after the minute, however we would need the raw data to determine the GPS_ARR_DTM variation from schedule.
 
-#Solution Statement
+# Solution Statement
 We will predict how late a given west bound peak train will arrive at Penn Station
 
-#Benchmark Model
+# Benchmark Model
 Since this model intends to predict a nonlinear continuous feature, a random forest decision tree regression will be used.
 
-#In the reviewers comments they suggested using linear regression. However, there is a time series element to this model and linear regression doesn’t seem appropriate. I will utilize xgBoost for the final model and RFR from sklearn as the benchmark.
+In the reviewers comments they suggested using linear regression. However, there is a time series element to this model and linear regression doesn’t seem appropriate. I will utilize xgBoost for the final model and RFR from sklearn as the benchmark.
 
-#Evaluation Metrics
+# Evaluation Metrics
 Mean Squared Error will be the evaluation metric since it is resistant to outliers
 
-#Project Design
+# Project Design
 The data will be cleaned, analyzed, and normalized if required. Then the RFR model will be trained and the MSE will be evaluated for the testing set in order to determine model effectiveness.
 
 To further clarify, I will drop columns that are not relevant to my problem. I will fill null values where needed, and I will convert df elements to the appropriate data types. I will also perform encoding where necessary to transform categorical variables into integers.
